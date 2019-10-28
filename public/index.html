@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Restaurant Booking Site for Adelaide">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TABLES ARE US</title>
+	
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="javascripts/entire-site.js" defer></script>
+	<script src="javascripts/login.js" defer></script>
+	<script src="javascripts/maps.js" defer></script>
+
+	<meta name="google-signin-client_id" content="634525782579-m1jv4fs71n3nprika3kup2hg6kq4828m.apps.googleusercontent.com">
+
+	<script>
+		function onLoad() {
+			gapi.load('auth2', function() {
+				gapi.auth2.init();
+			});
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHSI4KzoulBbnrXCiIiID4asbLxqVAyZE&libraries=geometry" async defer></script>
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	
+	<!-- Styling -->
+		<!-- pure CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<!-- local fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+		
+		<!-- local CSS -->
+		<link rel="stylesheet" href="stylesheets/entire-site.css">
+		<link rel="stylesheet" href="stylesheets/index.css">
+		
+	<!-- End of Styling -->
+
+</head>
+<body onload="populateTrending(); changeHeader(); ">
+<div id ="vuemain">
+	<vue-header></vue-header>
+	
+	<!-- background image -->
+	<div class="b-ground">
+	</div>
+
+
+	<div style="text-align: center;" class="insideDiv">
+		<div class="sloganDiv">
+			<h2 class="slogan" style="font-family: 'Roboto'">A table for any occasion</h2>
+		</div>
+
+		<div class="theForm">
+			<form class="pure-form">
+				<fieldset>
+					<input v-model="preferenceDate" class="input" id="prefDate" type="date">
+					<select v-model="preferenceTime" class="input" id="prefTime">
+						<option value="null">Select Meal</option>
+						<option value="Breakfast">Breakfast</option>
+						<option value="Lunch">Lunch</option>
+						<option selected value="Dinner">Dinner</option>
+					</select>
+					<input v-model="preferenceGuest" class="input" type="number" id="prefNoOfpeople" placeholder="no. people" min="0" max="10">
+					<input v-model="preferenceCuisine" class="input" type="text" id="prefCus" placeholder="cuisine">
+					<button type="button" onclick="searchButton(); saveData();" class="yellowButton pure-button pure-button-primary">Search</button>	
+				</fieldset>
+			</form>
+		</div>
+		<div>
+			<button type="button" onclick="quickBooking()" class="redButton pure-button pure-button-primary">Quick Booking</button>
+		</div>
+	</div>
+
+	<div class="popularNearYou">
+		<h3>Popular Near You</h2>
+			
+			<div class="holder">
+				<vue-trending v-for="item in currentTrending" v-bind:result="item"></vue-trending>
+			</div>
+	</div>
+
+	<div style="margin: 10px">
+		<div class = "indexTitle">
+
+		<h1> About Tables Are Us </h1>
+		<div class="paragraphPad">
+		<p class="lineHeight">
+			Tables are us, is smart and always personalised, connecting diners with the best restaurants via the fastest-growing restaurant reservation platform in Adelaide. Tables are us, is a table reservation system for restaurants and a convenient way for diners to discover new places to eat, book tables online, get exclusive deals and offers and review their experience afterwards. Founded in 2019, over only 11 diners already make up the Tables are us community of online restaurant booking and enjoy more fun and more time when they eat out. From cheap & cheerful to high-end dining, book a restaurant online today.
+		</p>
+
+		<p class="lineHeight">
+			Tables are us, is founded by 4 musketeers with a passion of food and always on a lookout of the finest restaurant around Adelaide. With the building passion, this website is created with love and affection over a period of 13 exhausting weeks due to Ian's course being taught at University of Adelaide with an effort of making amazing web developers. From the 4 musketeers we hope, Ian loves this website and we strive everyday to make this your best option in and around Down Under!
+		</p>
+	</div>
+	</div>
+	</div>
+	<br>
+
+	<vue-footer></vue-footer>
+
+</div>
+</body>

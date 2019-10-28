@@ -1,0 +1,58 @@
+.sign-up-form{
+	margin: auto;
+	width: 100%;
+/*	border-style: solid;
+	border-color: blue;
+	border-width: 2px;*/
+	text-align: center;
+}
+
+.forTheForm{
+	width: 60%;
+	margin: auto;
+/*	border-style: solid;
+	border-color: blue;
+	border-width: 2px;*/
+	text-align: center;
+}
+
+.in{
+	width: 97%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.responseText{
+	color: red;
+}
+
+.responseTextSuccess{
+	color: green;
+}
+
+.g-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
+}
+
+/*POPULAR NEAR YOU*/
+
+@media (min-width: 38em) {
+
+	.sign-up-form{
+		width: 70%;
+	}
+}
+
+@media (min-width: 65em) {
+
+	.sign-up-form{
+		width: 50%;
+	}
+
+}
+

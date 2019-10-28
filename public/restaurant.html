@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Restaurant Booking Site for Adelaide">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Restaurant Profile | TABLES ARE US</title>
+	
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="javascripts/entire-site.js" defer></script>
+	<script src="javascripts/login.js" defer></script>
+	<script src="javascripts/restaurant.js" defer></script>
+	<script src="javascripts/maps.js" defer></script>
+
+    <meta name="google-signin-client_id" content="634525782579-m1jv4fs71n3nprika3kup2hg6kq4828m.apps.googleusercontent.com">
+
+    <script>
+        function onLoad() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
+        }
+    </script>
+    <script>
+    	function menuFunction(){
+    		window.open("images/menuPage.jpg")
+    	}
+	</script>
+
+    <script type="text/javascript"></script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	
+	<!-- Styling -->
+		<!-- pure CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		<!--<![endif]-->
+		
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<!-- local CSS -->
+		<link rel="stylesheet" href="stylesheets/entire-site.css">
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="stylesheets/restaurant.css">
+		<!--<![endif]-->
+	
+	<!-- End of Styling -->
+
+</head>
+<body onload="populateRestaurantPage(); changeHeader(); populateRestaurantReview(vueInstance.restName); loadSearch();">
+<div id="vuemain">
+
+	<vue-header></vue-header>
+
+	<div id="content">
+	<div id="content-inner" class ="pure-u">
+
+		<div class="restaurant-page-image">
+
+		</div>
+		<div class="pure-g">
+			<div class="pure-u-4-5">
+				<div class="restaurant-page-body section-heading bottom-margin icons">
+					<h1>{{ restName }}</h1>
+					<div>
+					   <i class="fas fa-city"> Adelaide</i> 
+					   <i class="fas fa-utensils"> {{ restCuisine }}</i> 
+					   <i class="fas fa-dollar-sign"> {{ restCost }}</i> 
+					</div>
+
+					<h3>About Us</h3>
+					<div class="l-box" class = "boxStyle">
+						
+						<p>{{ restText }} <br>{{ restAddress }} </p>
+					</div>
+
+					<div class="menu-button">
+						<button class="pure-button pure-button-primary" onclick="menuFunction()">Menu</button>
+					</div>
+
+					<h3>Reviews</h3>
+					<div class="l-box">
+						
+						<div>
+							<vue-review v-for="item in reviewArray" v-bind:review="item"></vue-review>
+						</div>
+					</div>
+					
+										<br>
+					<p>Have you dined at this restaurant? Leave a review to help other diners.</p>
+
+
+					<form class = "pure-form pure-form-aligned ">  
+						<fieldset>
+							<select v-model="reviewStars" class="input" id="reviewStars">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+							<input v-model="reviewText" class="input" type="text" id="reviewText" placeholder="Write your review here">
+							<br>
+							<button class="pure-button pure-button-primary" type="button" onclick="submitReview()">Leave a review</button>
+						</fieldset>
+					</form>
+					<div class="responseText" id="response">
+						<p class="responseText"></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pure-u-1-5"> 
+				<div class="l-box-reservation pure-form">
+					<form class="pure-form">
+						<h2 style="text-align:center;">Reservation</h2>
+						<fieldset>
+							People: 
+							<input v-model="preferenceGuest" class="input" id="numberOfPeopleRestaurant" type="number" placeholder="no. people" min="0" max="10">
+							<br/>
+							Date: 
+							<input v-model="preferenceDate" class="input" id="preferenceDateRestaurant" type="date">
+							<br/>
+						</fieldset>
+					</form>	
+					<p>Time: </p>
+					<div id="timeButtonDiv"></div>
+				</div>
+			</div>
+			
+		</div>
+
+    </div>
+	</div>
+	
+	<vue-footer></vue-footer>
+	
+</div>
+</body>
+</html>

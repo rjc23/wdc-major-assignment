@@ -1,0 +1,39 @@
+.sign-up-form{
+	margin: auto;
+	width: 50%;
+/*	border-style: solid;
+	border-color: blue;
+	border-width: 2px;*/
+	text-align: center;
+}
+
+.forTheForm{
+	width: 60%;
+	margin: auto;
+/*	border-style: solid;
+	border-color: blue;
+	border-width: 2px;*/
+	text-align: center;
+}
+
+.in{
+	width: 97%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/*text-align: center;*/
+}
+
+.responseText{
+	color: red;
+}
+
+.responseTextSuccess{
+	color: green;
+}
+.drop{
+	width: 100%;
+	text-align: center;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+

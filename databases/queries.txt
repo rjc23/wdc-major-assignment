@@ -1,0 +1,197 @@
+
+
+ALL THE QUERIES NEEDED ARE LISTED BELOW
+
+__________________________________________________________________________________________________________________
+
+++------------------INSERT To The Restaurant Database Query------------------++
+
+insert into Restaurant (Name, Cuisine, Location, Average_Rating, No_Of_Bookings, Opening_Time, Password, Email, Price, Longitude, Latitude) Values("[Name]", "[Cuisine]", "[Location]", [Average_Rating], [No_Of_Bookings], "[Opening_Time]", "[Password]", "[Email]", [Price], [Longitude], [Latitude]);
+
+---------Below is the example given for inserting-------------
+
+insert into Restaurant (Name, Cuisine, Location, Average_Rating, No_Of_Bookings, Opening_Time, Password, Email, Price) Values ("Ryans Kitchen", "Irish", "130 Gawler St Woodville West SA 5011", 4, 3, "Breakfast/Dinner", "RyansPassword", "ryan@something.com", 5, 123.87676, 23.9876765);
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------INSERT To The User Database Query------------------++
+
+insert into User (FirstName, LastName, Phone_No, Favourites, Address, SocialMedia_ID, Password) Values ("[FirstName]", "[LastName]",[Phone_No],"[Favourites]", "[Address]",[SocialMedia_ID], "[Password]");
+
+---------Below is the example given for inserting-------------
+
+insert into User (FirstName, LastName, Phone_No, Favourites, Address, SocialMedia_ID, Password) Values ("Stephen", "Brown", 2786541099, "Great Wall", "20 Bank St Adelaide SA 5061", 5432, "Stephen");
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------INSERT To The Booking Database Query------------------++
+
+insert into Booking (Booking_Date, User_ID, Booking_Time, Party_size, Restaurant_ID) Values ([Booking_Date], [User_ID], "[Booking_Time]", [Party_size], [Restaurant_ID]);
+
+---------Below is the example given for inserting-------------
+insert into Booking (Booking_Date, User_ID, Booking_Time, Party_size, Restaurant_ID) Values (2019-04-20, 12349, "12349", 8, 5559);
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------INSERT To The Reviews Database Query------------------++
+
+insert into Reviews (User_ID, Restaurant_ID, Comments, Ratings) Values ([User_ID], [Restaurant_ID], "[Comments]", [Ratings]);
+
+---------Below is the example given for inserting-------------
+
+insert into Reviews (User_ID, Restaurant_ID, Comments, Ratings) Values (12347, 5559, "Not great food, good service, sat behind a group who were loud, swearing and offensive. Staff kept proving them alcohol.", 3);
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that filters cuisine------------------++
+
+select * from Restaurant where Cuisine Like '[keyword for cuisine]';
+
+							OR
+
+select * from Restaurant where Cuisine = '[keyword for cuisine]';
+
+
+---------Below is the example given on using this query-------------
+
+1ST QUERY:
+select * from Restaurant where Cuisine Like '%i%';
+
+2ND QUERY:
+select * from Restaurant where Cuisine = continental;
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that filters opening time------------------++
+
+select * from Restaurant where Opening_Time LIKE '[keyword of time]';
+
+							OR
+
+select * from Restaurant where Opening_Time = '[keyword of time]';
+\
+
+---------Below is the example given on using this query-------------
+
+1ST QUERY:
+select * from Restaurant where Opening_Time LIKE '%Break%';
+
+2ND QUERY:
+select * from Restaurant where Opening_Time = Breakfast;
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that filters Average Rating------------------++
+
+select * from Restaurant where Average_Rating >= [number ranging from 1-5];
+
+
+---------Below is the example given on using this query-------------
+
+select * from Restaurant where Average_Rating >= 2;
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that filters number of tables------------------++
+
+select * from Restaurant where No_of_Bookings >= [number ranging from 1-30 (maybe)];
+
+
+---------Below is the example given on using this query-------------
+
+select * from Restaurant where No_of_Bookings >= 2;
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that filters for Longitude and Latitude------------------++
+
+select * from Restaurant where Longitude >= [longitude coordinates] and Latitude >= [Latitude coordinates];
+
+
+---------Below is the example given on using this query-------------
+
+select * from Restaurant where Longitude >= 0 and Latitude >= 0;
+
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++--Query that filters cuisine, opening time, average rating, no_of_Bookings, Longitude and Latitude--++
+
+select * from Restaurant where Cuisine Like '[keyword for cuisine]' and Opening_Time LIKE '[keyword of time]' and Average_Rating >= [number ranging from 1-5] and No_of_Bookings >= [number ranging from 1-30 (maybe)] and Longitude >= [longitude coordinates] and Latitude >= [Latitude coordinates];
+
+---------Below is the example given on using this query-------------
+
+select * from Restaurant where Cuisine Like '%i%' and Opening_Time LIKE '%Break%' and Average_Rating >= 2 and No_of_Bookings >= 2 and Longitude >= 0 and Latitude >= 0;
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++------------------Query that updates a table by setting a specific field------------------++
+
+update [name of table] set [columnName] = [information for that columName] where [table ID] = [id of the specific field name];
+
+
+---------Below is the example given on using this query-------------
+
+update Restaurant set Longitude = 120.0000012 where Restaurant_ID = 5556;
+
+							OR
+
+update User set name = 'sunit' where User_ID = 12346;
+__________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________
+
+++--Query that displays the restaurant name and address, booking ID, booking date, booking time and party size--++
+
+select Restaurant.Name As Restaurant_Name, Restaurant.Location as Restaurant_Address, Booking.Booking_ID,  Booking.Booking_Date, Booking.Party_size, Booking.Booking_Time from Restaurant inner join Booking on Restaurant.Restaurant_ID = Booking.Restaurant_ID;
+
+__________________________________________________________________________________________________________________
+
+
+
+__________________________________________________________________________________________________________________
+
+++----Query that displays the username, booking date, booking time party size and Restaurant name-----++
+
+select User.FirstName As Customer_Name, Booking.Booking_Date, Booking.Party_size, Booking.Booking_Time, Restaurant.Name as Restaurant_Name from User inner join Booking on User.User_ID = Booking.User_ID inner join Restaurant on Restaurant.Restaurant_ID = Booking.Restaurant_ID;
+
+__________________________________________________________________________________________________________________
+
+
+
+_________________________________________________________________________________________________________________
+
+++----Query that displays the user name, Restaurant name, comments and ratings-----++
+
+select User.FirstName as Customer_Name, Restaurant.Name as Restaurant_Name, Reviews.Comments, Reviews.Ratings from User inner join Reviews on User.User_ID = Reviews.User_ID inner join Restaurant on Restaurant.Restaurant_ID = Reviews.Restaurant_ID;
+
+__________________________________________________________________________________________________________________
+
+
+

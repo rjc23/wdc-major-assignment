@@ -1,0 +1,22 @@
+.userInfo{
+	width: 85%;
+	margin: auto;
+
+/*	border-style: solid;
+	border-color: blue;
+	border-width: 2px;*/
+}
+
+.center{
+	text-align: center;
+}
+
+.round{
+	border-style: solid;
+	border-radius: 10px;
+	border-color: black;
+	border-width: 2px;
+	text-align: left;
+	padding: 20px;
+	margin: 10px;
+}

@@ -1,0 +1,64 @@
+/* ==== MAIN CONTENT ==== */
+#content {
+	/* element dimensions & alignment */
+	margin: auto;
+	padding: 1em;
+}
+
+/* ==== LEFT SECTION ==== */
+	/* size control for the left side of content */
+	#left-inner {
+		/* element dimensions */
+		padding: 0em 1em 0em 1em;
+		/* element styling - for measurement-only 
+		border-style: dashed;
+		border-width: 1px; */
+	}
+
+	/* filter display IF it is drawn on the left side */
+	#filter-side {
+		/* element dimensions */
+		padding: 1em 0em 1em 0em;
+	}
+
+/* ==== RIGHT SECTION ==== */
+	/* size control for the right side of content */
+	#right-inner {
+		/* element dimensions & alignment */
+		padding: 0em 1em 0em 1em;
+	}
+
+	#search-bar {
+		/* element dimensions & alignment */
+		display: inline-block;
+		
+	}
+
+	/* RESULT LIST */
+	#result-list {
+		/* element styling - for measurement-only  
+		border-style: dashed;
+		border-width: 1px;	*/
+	}
+
+	/* RESTAURANT RESULT INFO BOX */
+	.result-box {
+		/* element dimensions & alignment */
+		height: 12em;
+		width: 100%;			/* relative to parent */
+		padding: 0.5em;
+		margin: 0.5em 0.5em 0.5em 0.5em;
+		/* element styling */
+		background-color: white;
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 0.5em;
+	}
+
+	.result-img {
+		/* element dimensions & alignment */
+		height: 66.67%;
+		width: 25%;
+		
+		padding: 0 0.5em 0 0;
+	}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Restaurant Booking Site for Adelaide">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Booking Confirmation | TABLES ARE US</title>
+    
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="javascripts/entire-site.js" defer></script>
+
+	<meta name="google-signin-client_id" content="634525782579-m1jv4fs71n3nprika3kup2hg6kq4828m.apps.googleusercontent.com">
+
+	<script>
+		function onLoad() {
+			gapi.load('auth2', function() {
+				gapi.auth2.init();
+			});
+		}
+	</script>
+
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	
+	
+	
+	<!-- Styling -->
+		<!-- pure CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<!-- local fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+		
+		<!-- local CSS -->
+		<link rel="stylesheet" href="stylesheets/entire-site.css">
+		<link rel="stylesheet" href="stylesheets/confirmation.css">
+		
+	<!-- End of Styling -->
+
+</head>
+
+<body onload="populateConfirmationPage(); changeHeader()">
+<div id="vuemain">
+
+	<vue-header></vue-header>
+
+	<div class="confirmation pure-u-1">
+		<h2>You're all set!</h2>
+		<p>A confirmation email has been sent to {{ currentBooking.UserEmail }} with the booking details below</p>
+		<br/>
+		<p>Show this when you arrive</p>
+		<br/>
+		<div class="BookingID">
+			<p>Booking ID</p>
+			<br/>
+			<p style="font-size: 5vw;" id="changeBookingID">{{ currentBooking.bookingID }}</p>
+			<br/>
+			<p>{{ currentBooking.Name }} has a booking at</p>
+			<p id="changeRestaurantID">{{ currentBooking.RestName }}</p>
+			<p id="changeAddress">({{ currentBooking.RestAddress }})</p>
+			<p id="changeDate">On the {{ currentBooking.Date }}</p>
+			<p id="changeTime">At {{ currentBooking.Time }}</p>
+			<br/>
+			
+		</div>
+	</div>
+
+	<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+	<vue-footer></vue-footer>
+
+</div>
+</body>

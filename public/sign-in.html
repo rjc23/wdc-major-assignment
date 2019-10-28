@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Restaurant Booking Site for Adelaide">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign IN | TABLES ARE US</title>
+	
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="javascripts/entire-site.js" defer></script>
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+	<meta name="google-signin-scope" content="profile email">
+	
+	<meta name="google-signin-client_id" content="634525782579-m1jv4fs71n3nprika3kup2hg6kq4828m.apps.googleusercontent.com">
+
+	<script>
+		function onLoad() {
+			gapi.load('auth2', function() {
+				gapi.auth2.init();
+			});
+		}
+	</script>
+
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	
+	<!-- Styling -->
+		<!-- pure CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<!-- local fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+		
+		<!-- local CSS -->
+		<link rel="stylesheet" href="stylesheets/entire-site.css">
+		<link rel="stylesheet" href="stylesheets/sign-in.css">
+		
+	<!-- End of Styling -->
+
+</head>
+
+<body onload="changeHeader()">
+<div id="vuemain">
+	
+	<vue-header></vue-header>
+	<!-- <script>changeHeader()</script> -->
+
+	<br>
+	<br>
+	<br>
+
+    <div class="sign-up-form">
+    	<br>
+        <h2>Sign In</h2>
+        <div class="forTheForm">
+	        <form class="theForm" action="/users/addpost" method="post">
+
+	            <fieldset>
+	                <input class="in" id="username" type="text" placeholder="Username">
+	                <input class="in" id="password" type="password" placeholder="Password">
+	            </fieldset>
+	            <button class="yellowButton pure-button pure-button-active" onclick="loginForm()" type="button">Sign In</button>
+	        </form>
+	    </div>
+
+	    <div class="responseText" id="response">
+	    	<p class="responseText"></p>
+	    </div>
+
+	        <h3>Or Sign In with your Google Account</h3>
+
+    	<div class="g-signin2" data-onsuccess="loginOpenID" data-theme="dark"></div>
+    </div>
+
+    <br>
+    <br>
+     <br>
+    <br>
+    <br>
+     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+	<vue-footer></vue-footer>
+
+</div>
+
+</body>

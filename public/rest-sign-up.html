@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Restaurant Booking Site for Adelaide">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Restaurant Sign Up | TABLES ARE US</title>
+	
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="javascripts/entire-site.js" defer></script>
+	<script src="javascripts/rest-sign-up.js" defer></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+	<meta name="google-signin-client_id" content="634525782579-m1jv4fs71n3nprika3kup2hg6kq4828m.apps.googleusercontent.com">
+
+	<script>
+		function onLoad() {
+			gapi.load('auth2', function() {
+				gapi.auth2.init();
+			});
+		}
+	</script>
+
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	
+	<!-- Styling -->
+		<!-- pure CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		
+		<!-- local fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">
+		
+		<!-- local CSS -->
+		<link rel="stylesheet" href="stylesheets/entire-site.css">
+		<link rel="stylesheet" href="stylesheets/rest-sign-up.css">
+		
+	<!-- End of Styling -->
+
+</head>
+
+<body onload="changeHeader()">
+<div id="vuemain">
+	
+	<vue-header></vue-header>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+    <div class="sign-up-form">
+        <h2>Restaurant Sign Up</h2>
+        <p>Please enter the details of your restaurant</p>
+       	<div class="responseText" id="response">
+	    	<p class="responseText"></p>
+	    </div>
+        <div class="forTheForm">
+	        <form class="theForm" action="/users/addpost" method="post">
+
+	            <fieldset>
+	                <input class="in" id="name" type="text" placeholder="Restaurant Name">
+	                <input class="in" id="cuisine" type="text" placeholder="Cuisine">
+	                <input class="in" id="address" type="text" placeholder="Restaurant Address">
+	                <input class="in" id="email" type="email" placeholder="Email">
+
+	                <select class="drop" id="opening">
+	                	<option value="" selected disabled hidden>Opening Times</option>
+	                	<option value="Breakfast">Breakfast</option>
+	                	<option value="Lunch">Lunch</option>
+	                	<option value="Dinner">Dinner</option>
+	                	<option value="Breakfast/Lunch">Breakfast/Lunch</option>
+	                	<option value="Breakfast/Dinner">Breakfast/Dinner</option>
+	                	<option value="Lunch/Dinner">Lunch/Dinner</option>
+	                	<option value="Breakfast/Lunch/Dinner">Breakfast/Lunch/Dinner</option>
+	                </select>
+	               	<select class="drop" id="price">
+	                	<option value="" selected disabled hidden>Average price for a main meal?</option>
+	                	<option value="1">$10</option>
+	                	<option value="2">$20</option>
+	                	<option value="3">$30</option>
+	                	<option value="4">$40</option>
+	                	<option value="5">$50+</option>
+	                </select>
+
+	                <input class="in" id="passwordrest" type="password" placeholder="Password">
+	                <input class="in" id="rpasswordrest" type="password" placeholder="Repeat Password">
+	            </fieldset>
+
+	            <button class="yellowButton pure-button pure-button-active" onclick="restSignUp()" type="button" >Sign Up</button>
+	        </form>
+	    </div>
+
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+	<vue-footer></vue-footer>
+
+</div>
+
+</body>

@@ -1,0 +1,60 @@
+h1,
+h2,
+h3,
+h4{
+    font-family: Roboto;
+}
+}
+h1{
+    font-size: 7vw;
+}
+h2{
+    font-size: 6vw;
+}
+h3{
+    font-size: 5vw;
+}
+h4{
+    font-size: 3.5vw;
+}
+p{
+    font-size: 4.2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.sign-in{
+    color: black;
+    margin: 8px;
+    font-size: 80%;
+}
+
+/*CONFIRMATION*/
+.confirmation {
+/*    border-style: solid;
+    border-color: purple;
+    border-width: 2px;*/
+    text-align: center;
+    margin: 10px;
+}
+
+.BookingID {
+    border-style: dashed;
+    border-color: purple;
+    border-width: 2px;
+    margin-left: 30px;
+    margin-right: 30px;
+    letter-spacing: 3px;
+    padding: 15px;
+}
+
+
+@media (min-width: 65em){
+
+    h2{
+        font-size: 45px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
